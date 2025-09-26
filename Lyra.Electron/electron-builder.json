@@ -1,0 +1,15 @@
+{
+  "appId": "Lyra",
+  "files": [ "../Lyra/dist", "./dist" ],
+  "icon": "./icon.png",
+  "win": {
+    "target": [ "portable", "msi" ]
+  },
+  "mac": {
+    "target": "dmg"
+  },
+  "linux": {
+    "target": "AppImage",
+    "category": " Utility"
+  }
+}

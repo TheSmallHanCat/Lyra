@@ -1,0 +1,32 @@
+{
+  "name": "lyraelectron",
+  "version": "1.0.0",
+  "description": "Lyra Electron App",
+  "main": "./dist/main.js",
+  "scripts": {
+    "start": "npm run transpile-electron && electron .--inspect=9229",
+    "transpile-electron": "tsc --project ./tsconfig.json",
+    "dev": "cross-env NODE_ENV=development electron .",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dist:mac": "npm run transpile:electron && npm run build && electron-builder --mac --arm64",
+    "dist:win": "npm run transpile:electron && npm run build && electron-builder --win --x64",
+    "dist:linux": "npm run transpile:electron && npm run build && electron-builder --linux --x64"
+  },
+  "keywords": [
+    "electron",
+    "lyra",
+    "react"
+  ],
+  "author": "Isogelun",
+  "license": "MIT",
+  "devDependencies": {
+    "cross-env": "^7.0.3",
+    "electron": "^38.1.2",
+    "eslint": "^9.36.0"
+  },
+  "dependencies": {
+    "@types/node": "^24.5.2",
+    "electron": "^38.1.2",
+    "typescript": "^5.9.2"
+  }
+}

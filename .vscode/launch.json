@@ -1,0 +1,13 @@
+{
+  "version": "0.2.0",
+  "compounds": [
+    {
+      "name": "Lyra",
+      "configurations": [
+        "LyraReact",
+        "LyraElectron"
+      ],
+      "stopAll": true
+    }
+  ]
+}
