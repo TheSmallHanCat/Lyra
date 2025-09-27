@@ -1,5 +1,7 @@
 ﻿const { app, BrowserWindow,Menu } = require('electron/main')
 const path = require('path');
+const { ipcMain } = require('electron');
+import { type IpcMainInvokeEvent } from 'electron';
 
 function Startup() {
     const Startupwindows = new BrowserWindow({
@@ -25,13 +27,13 @@ function Startup() {
 
 
 function editor() {
-    Menu.setApplicationMenu(null)
+    //Menu.setApplicationMenu(null)
     const editorwindows = new BrowserWindow({
         width: 1280,
         height: 800,
         minWidth: 800,
         minHeight: 500,
-        //frame: false,
+        frame: false,
         webPreferences: {
             preload: path.join(__dirname, 'preload.js'),
             nodeIntegration: false,
@@ -41,6 +43,8 @@ function editor() {
     const editorindexpath = path.join(__dirname, '../../Lyra/dist/index.html');
     editorwindows.loadFile(editorindexpath);
 };
+
+
 
 app.whenReady().then(() => {
 
@@ -53,6 +57,26 @@ app.whenReady().then(() => {
         }
     })
 })
+
+ipcMain.handle('window:minimize', (event: IpcMainInvokeEvent) => {
+    const window = BrowserWindow.fromWebContents(event.sender);
+    window.minimize();
+});
+
+ipcMain.handle('window:maximize', (event: IpcMainInvokeEvent) => {
+    const window = BrowserWindow.fromWebContents(event.sender);
+    if (window.isMaximized()) {
+        window.unmaximize();
+    } else {
+        window.maximize();
+    }
+});
+
+ipcMain.handle('window:close', (event: IpcMainInvokeEvent) => {
+    const window = BrowserWindow.fromWebContents(event.sender);
+    window.close();
+});
+
 
 app.on('window-all-closed', () => {
     if (process.platform !== 'darwin') {

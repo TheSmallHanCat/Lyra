@@ -17,4 +17,4 @@ const Startup = () => {
     );
 };
 
-export default Startup
+export default Startup;
