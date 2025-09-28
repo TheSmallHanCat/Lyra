@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const { app, BrowserWindow, Menu } = require('electron/main');
+const { app, BrowserWindow, Menu, dialog } = require('electron/main');
 const path = require('path');
 const { ipcMain } = require('electron');
 function Startup() {
@@ -40,6 +40,8 @@ function editor() {
     });
     const editorindexpath = path.join(__dirname, '../../Lyra/dist/index.html');
     editorwindows.loadFile(editorindexpath);
+    // 可选：打开开发者工具进行调试
+    // editorwindows.webContents.openDevTools();
 }
 ;
 app.whenReady().then(() => {
@@ -67,6 +69,43 @@ ipcMain.handle('window:maximize', (event) => {
 ipcMain.handle('window:close', (event) => {
     const window = BrowserWindow.fromWebContents(event.sender);
     window.close();
+});
+// 新增的菜单功能处理器
+ipcMain.handle('window:toggle-devtools', (event) => {
+    const window = BrowserWindow.fromWebContents(event.sender);
+    window.webContents.toggleDevTools();
+});
+ipcMain.handle('window:toggle-fullscreen', (event) => {
+    const window = BrowserWindow.fromWebContents(event.sender);
+    window.setFullScreen(!window.isFullScreen());
+});
+ipcMain.handle('dialog:open-file', async () => {
+    const result = await dialog.showOpenDialog({
+        properties: ['openFile'],
+        filters: [
+            { name: 'All Files', extensions: ['*'] },
+            { name: 'Text Files', extensions: ['txt', 'md'] },
+            { name: 'JavaScript Files', extensions: ['js', 'ts', 'jsx', 'tsx'] }
+        ]
+    });
+    return result;
+});
+ipcMain.handle('dialog:save-file', async () => {
+    const result = await dialog.showSaveDialog({
+        filters: [
+            { name: 'All Files', extensions: ['*'] },
+            { name: 'Text Files', extensions: ['txt', 'md'] },
+            { name: 'JavaScript Files', extensions: ['js', 'ts', 'jsx', 'tsx'] }
+        ]
+    });
+    return result;
+});
+ipcMain.handle('app:quit', () => {
+    app.quit();
+});
+ipcMain.handle('app:restart', () => {
+    app.relaunch();
+    app.quit();
 });
 app.on('window-all-closed', () => {
     if (process.platform !== 'darwin') {
