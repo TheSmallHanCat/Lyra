@@ -1,100 +1,29 @@
-/* 主容器样式 */
-.title-bar-container {
-    position: relative;
-    width: 100%;
-    z-index: 1000;
-}
-
-/* Menu组件样式 - 作为底层 */
-.editor-menu {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 1000;
-    background: #2d2d2d;
-    height: auto;
-    min-height: 30px;
-}
-
-.editor-menu .ant-menu {
-    background: #2d2d2d;
-    border-bottom: none;
-    height: 100%;
-    min-height: 30px;
-}
-
-.editor-menu .ant-menu-dark {
-    background: #2d2d2d;
-}
-
-.editor-menu .ant-menu-horizontal {
-    line-height: 30px;
-}
-
-.editor-menu .ant-menu-horizontal > .ant-menu-submenu > .ant-menu-submenu-popup {
-    top: 30px !important;
-    z-index: 1003 !important;
-}
-
-/* 叠加内容样式 */
-.overlay-content {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 30px;
-    display: flex;
-    align-items: center;
-    z-index: 1001;
-    pointer-events: none;
-}
-
-/* Title组件样式调整 */
 .title-bar {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     height: 30px;
-    background: transparent; /* 设置为透明背景 */
+    background: #2d2d2d;
     color: white;
-    -webkit-app-region: drag;
+    -webkit-app-region: drag; /* ������ק */
     user-select: none;
-    margin: 0;
-    padding: 0;
-    flex: 1;
-    position: static; /* 取消固定定位 */
-    z-index: auto; /* 重置z-index */
 }
 
 .title-bar-drag-region {
     display: flex;
     align-items: center;
     flex: 1;
+    padding-left: 12px;
 }
 
 .title {
     font-size: 14px;
     font-weight: 500;
-    text-align:center;
-    flex-grow: 1;
-    width: 100%;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8); /* 添加文字阴影以提高可读性 */
-}
-
-/* 控制按钮样式调整 */
-.editor-controls-overlay {
-    position: absolute;
-    right: 0;
-    top: 0;
-    z-index: 1002;
-    -webkit-app-region: no-drag;
-    pointer-events: auto;
 }
 
 .window-controls {
     display: flex;
-    -webkit-app-region: no-drag;
+    -webkit-app-region: no-drag; /* ��ť���򲻿���ק */
 }
 
 .control-button {
@@ -109,9 +38,10 @@
 }
 
 .control-button:hover {
-    background: rgba(255, 255, 255, 0.1);
+        background: rgba(255, 255, 255, 0.1);
+
 }
 
 .close-btn:hover {
-    background: #e8112349;
+    background: #e81123;
 }
