@@ -1,5 +1,11 @@
 ﻿import React, { useState } from 'react';
 import './TitleBar.css';
+import { FullscreenExitOutlined, 
+          FullscreenOutlined,
+          MinusOutlined,
+          CloseOutlined
+         } from '@ant-design/icons';
+
 
 interface MenuItemProps {
     label: string;
@@ -40,6 +46,9 @@ const MenuItem: React.FC<MenuItemProps> = ({ label, items, onItemClick }) => {
 };
 
 const TitleBar = () => {
+
+    const [isMaximized, setIsMaximized] = useState(false); 
+
     const handleMinimize = () => {
         console.log('Minimize clicked, electron available:', !!window.electron);
         if (window.electron) {
@@ -53,6 +62,7 @@ const TitleBar = () => {
         console.log('Maximize clicked, electron available:', !!window.electron);
         if (window.electron) {
             window.electron.maximizeWindow();
+            setIsMaximized(!isMaximized);
         } else {
             console.error('window.electron is not available');
         }
@@ -97,6 +107,7 @@ const TitleBar = () => {
                     switch (item) {
                         case 'Toggle Fullscreen':
                             window.electron.toggleFullscreen();
+                            setIsMaximized(!isMaximized);
                             break;
                         case 'Developer Tools':
                             window.electron.toggleDevTools();
@@ -114,7 +125,8 @@ const TitleBar = () => {
 
                 default:
                     console.log(`Menu item "${item}" in "${menuLabel}" not implemented yet`);
-            }
+            };
+
         } catch (error) {
             console.error('Error handling menu item:', error);
         }
@@ -166,13 +178,13 @@ const TitleBar = () => {
 
             <div className="window-controls">
                 <button className="control-button minimize-btn" onClick={handleMinimize}>
-                    −
+                    <MinusOutlined />
                 </button>
                 <button className="control-button maximize-btn" onClick={handleMaximize}>
-                    □
+                    {isMaximized ? <FullscreenExitOutlined /> : <FullscreenOutlined />}
                 </button>
                 <button className="control-button close-btn" onClick={handleClose}>
-                    ×
+                    <CloseOutlined />
                 </button>
             </div>
         </div>

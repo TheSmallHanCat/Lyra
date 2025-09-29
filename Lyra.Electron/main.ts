@@ -96,8 +96,7 @@ ipcMain.handle('dialog:open-file', async () => {
         properties: ['openFile'],
         filters: [
             { name: 'All Files', extensions: ['*'] },
-            { name: 'Text Files', extensions: ['txt', 'md'] },
-            { name: 'JavaScript Files', extensions: ['js', 'ts', 'jsx', 'tsx'] }
+            { name: 'Vocal Files', extensions: ['mid', 'midi', 'vsqx', 'svp', 'ust', 'vpr', 'ccs'] }
         ]
     });
     return result;
@@ -107,8 +106,7 @@ ipcMain.handle('dialog:save-file', async () => {
     const result = await dialog.showSaveDialog({
         filters: [
             { name: 'All Files', extensions: ['*'] },
-            { name: 'Text Files', extensions: ['txt', 'md'] },
-            { name: 'JavaScript Files', extensions: ['js', 'ts', 'jsx', 'tsx'] }
+            { name: 'Lyra Files', extensions: ['lyra'] }
         ]
     });
     return result;
