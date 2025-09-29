@@ -4,7 +4,7 @@
   "description": "Lyra Electron App",
   "main": "./dist/main.js",
   "scripts": {
-    "start": "npm run transpile-electron && electron .--inspect=9229",
+    "start": "npm run transpile-electron && electron . --inspect=9229",
     "transpile-electron": "tsc --project ./tsconfig.json",
     "dev": "cross-env NODE_ENV=development electron .",
     "test": "echo \"Error: no test specified\" && exit 1",
