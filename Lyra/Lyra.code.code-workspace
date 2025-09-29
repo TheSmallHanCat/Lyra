@@ -1,0 +1,16 @@
+{
+	"folders": [
+		{
+			"path": "Lyra"
+		},
+		{
+			"path": "Lyra.Core"
+		},
+		{
+			"path": "Lyra.Electron"
+		},
+		{
+			"path": "Lyra.Engine"
+		}
+	]
+}
