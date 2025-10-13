@@ -21,6 +21,10 @@ declare global {
             // 应用控制
             quit: () => void;
             restart: () => void;
+
+            exportTrack: (trackId: string) => Promise<void>;
+            saveProject: (projectData: any) => Promise<void>;
+            loadProject: () => Promise<any>;
         }
     }
 }

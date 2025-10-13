@@ -1,4 +1,5 @@
 ﻿import React, { useState } from 'react';
+import type { MenuProps } from 'antd';
 import './TitleBar.css';
 import { FullscreenExitOutlined, 
           FullscreenOutlined,
@@ -13,35 +14,27 @@ interface MenuItemProps {
     onItemClick: (item: string) => void;
 }
 
+type MenuItem = Required<MenuProps>['items'][number];
+
+
+
 const MenuItem: React.FC<MenuItemProps> = ({ label, items, onItemClick }) => {
     const [isOpen, setIsOpen] = useState(false);
-
     return (
-        <div
-            className="menu-item"
-            onMouseEnter={() => setIsOpen(true)}
-            onMouseLeave={() => setIsOpen(false)}
-        >
-            <button className="menu-button">
-                {label}
-            </button>
-            {isOpen && (
-                <div className="menu-dropdown">
-                    {items.map((item, index) => (
-                        <div
-                            key={index}
-                            className="menu-dropdown-item"
-                            onClick={() => {
-                                onItemClick(item);
-                                setIsOpen(false);
-                            }}
-                        >
-                            {item}
-                        </div>
-                    ))}
+                <div className="menu-item" onMouseEnter={() => setIsOpen(true)} onMouseLeave={() => setIsOpen(false)}>
+                    <button className="menu-button">
+                        {label}
+                    </button>
+                    {isOpen && (
+                          <div className="menu-dropdown">
+                                {items.map((item, index) => (
+                                     <div key={index} className="menu-dropdown-item" onClick={() => {onItemClick(item);setIsOpen(false);}}>
+                                        {item}
+                                    </div>
+                                 ))}
+                          </div>
+                    )}
                 </div>
-            )}
-        </div>
     );
 };
 
@@ -89,14 +82,16 @@ const TitleBar = () => {
             switch (menuLabel) {
                 case 'File':
                     switch (item) {
-                        case 'Open':
+                        case 'Open':{
                             const openResult = await window.electron.showOpenDialog();
                             console.log('Open file result:', openResult);
                             break;
-                        case 'Save As':
+                        }
+                        case 'Save As':{
                             const saveResult = await window.electron.showSaveDialog();
                             console.log('Save file result:', saveResult);
                             break;
+                        }
                         case 'Exit':
                             window.electron.quit();
                             break;
@@ -160,34 +155,34 @@ const TitleBar = () => {
     ];
 
     return (
-        <div className="title-bar">
-            <div className="menu-bar">
-                {menuData.map((menu, index) => (
-                    <MenuItem
-                        key={index}
-                        label={menu.label}
-                        items={menu.items}
-                        onItemClick={(item) => handleMenuItemClick(menu.label, item)}
-                    />
-                ))}
-            </div>
+                <div className="title-bar">
+                    <div className="menu-bar">
+                        {menuData.map((menu, index) => (
+                            <MenuItem
+                                key={index}
+                                label={menu.label}
+                                items={menu.items}
+                                onItemClick={(item) => handleMenuItemClick(menu.label, item)}
+                            />
+                        ))}
+                    </div>
 
-            <div className="title-center">
-                <div className="title">Lyra</div>
-            </div>
+                    <div className="title-center">
+                        <div className="title">Lyra</div>
+                    </div>
 
-            <div className="window-controls">
-                <button className="control-button minimize-btn" onClick={handleMinimize}>
-                    <MinusOutlined />
-                </button>
-                <button className="control-button maximize-btn" onClick={handleMaximize}>
-                    {isMaximized ? <FullscreenExitOutlined /> : <FullscreenOutlined />}
-                </button>
-                <button className="control-button close-btn" onClick={handleClose}>
-                    <CloseOutlined />
-                </button>
-            </div>
-        </div>
+                    <div className="window-controls">
+                        <button className="control-button minimize-btn" onClick={handleMinimize}>
+                            <MinusOutlined />
+                        </button>
+                        <button className="control-button maximize-btn" onClick={handleMaximize}>
+                            {isMaximized ? <FullscreenExitOutlined /> : <FullscreenOutlined />}
+                        </button>
+                        <button className="control-button close-btn" onClick={handleClose}>
+                            <CloseOutlined />
+                        </button>
+                    </div>
+                </div>
     );
 };
 

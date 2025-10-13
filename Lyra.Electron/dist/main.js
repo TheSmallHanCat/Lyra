@@ -21,7 +21,7 @@ function Startup() {
     setTimeout(() => {
         //Startupwindows();
         Startupwindows.close();
-    }, 2000);
+    }, 1000);
 }
 ;
 function editor() {
