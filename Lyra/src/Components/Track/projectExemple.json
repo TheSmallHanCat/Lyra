@@ -1,0 +1,17 @@
+{
+    "EditorVersion":1,
+    "Track":[
+    {
+        "TrackID":0,
+        "TrackName":"未命名轨道",
+        "gain":0,
+        "Mute":false,
+        "Solo":false
+    },
+    {
+        "note":{
+            {"xxxx":}
+        },
+    }
+    ]
+}
