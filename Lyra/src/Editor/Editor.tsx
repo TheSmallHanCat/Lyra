@@ -1,11 +1,13 @@
 
-import TitleBarNew from "../Components/TitleBar/TitileBarNew.tsx";
+import TitleBar from "../Components/TitleBar/TitileBarNew.tsx";
 
 
 const Editor = () => {
     return (
-        <TitleBarNew/>
+        <TitleBar/>
     );
 };
 
 export default Editor;
+
+

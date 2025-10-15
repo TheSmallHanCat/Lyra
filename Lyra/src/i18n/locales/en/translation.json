@@ -1,0 +1,67 @@
+{
+  "startup": {
+    "team": "Isogelun",
+    "title": "Lyra",
+    "loading": "Loading..."
+  },
+  "languageSelector": {
+    "label": "Language"
+  },
+  "menu": {
+    "file": "File",
+    "edit": "Edit",
+    "view": "View",
+    "control": "Control",
+    "infer": "Infer",
+    "project": "Project",
+    "files": {
+      "new": "New",
+      "open": "Open...",
+      "openRecent": "Open Recent",
+      "save": "Save",
+      "saveAs": "Save As...",
+      "import": "Import...",
+      "importAsTracks": "Import As Tracks",
+      "export": "Export"
+    },
+    "editMenu": {
+      "history": "History",
+      "undo": "Undo",
+      "redo": "Redo",
+      "selection": "Selection",
+      "selectAll": "Select All",
+      "selectAllParameters": "Select All Parameters",
+      "selectParametersForNotes": "Select Parameters For Notes",
+      "unselect": "Unselect",
+      "deleteSelection": "Delete Selection",
+      "clipboard": "Clipboard",
+      "copy": "Copy",
+      "cut": "Cut",
+      "paste": "Paste"
+    },
+    "viewMenu": {
+      "arrangement": "Arrangement",
+      "snapping": "Snapping",
+      "fullQuarter": "Full Quarter",
+      "quarter": "1/1 Quarter",
+      "halfQuarter": "1/2 Quarter",
+      "quarterQuarter": "1/4 Quarter",
+      "sixthQuarter": "1/6 Quarter",
+      "eighthQuarter": "1/8 Quarter",
+      "twelfthQuarter": "1/12 Quarter",
+      "twentyFourthQuarter": "1/24 Quarter",
+      "thirtySecondQuarter": "1/32 Quarter",
+      "sixtyFourthQuarter": "1/64 Quarter",
+      "oneTwentyEighthQuarter": "1/128 Quarter",
+      "doNotSnap": "Do Not Snap",
+      "adaptive": "Adaptive"
+    }
+  },
+  "titleBar": {
+    "themeToggle": "Toggle theme",
+    "minimize": "Minimize",
+    "maximize": "Maximize",
+    "restoreDown": "Restore Down",
+    "close": "Close"
+  }
+}

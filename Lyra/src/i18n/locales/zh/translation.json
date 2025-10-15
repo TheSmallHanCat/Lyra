@@ -1,0 +1,67 @@
+{
+  "startup": {
+    "team": "Isogelun",
+    "title": "Lyra",
+    "loading": "加载中..."
+  },
+  "languageSelector": {
+    "label": "语言"
+  },
+  "menu": {
+    "file": "文件",
+    "edit": "编辑",
+    "view": "视图",
+    "control": "控制",
+    "infer": "推理",
+    "project": "项目",
+    "files": {
+      "new": "新建",
+      "open": "打开...",
+      "openRecent": "最近打开",
+      "save": "保存",
+      "saveAs": "另存为...",
+      "import": "导入...",
+      "importAsTracks": "导入为轨道",
+      "export": "导出"
+    },
+    "editMenu": {
+      "history": "历史记录",
+      "undo": "撤销",
+      "redo": "重做",
+      "selection": "选择",
+      "selectAll": "全选",
+      "selectAllParameters": "选择所有参数",
+      "selectParametersForNotes": "选择音符参数",
+      "unselect": "取消选择",
+      "deleteSelection": "删除选择",
+      "clipboard": "剪贴板",
+      "copy": "复制",
+      "cut": "剪切",
+      "paste": "粘贴"
+    },
+    "viewMenu": {
+      "arrangement": "编排",
+      "snapping": "吸附",
+      "fullQuarter": "完整四分音符",
+      "quarter": "1/1 四分音符",
+      "halfQuarter": "1/2 四分音符",
+      "quarterQuarter": "1/4 四分音符",
+      "sixthQuarter": "1/6 四分音符",
+      "eighthQuarter": "1/8 四分音符",
+      "twelfthQuarter": "1/12 四分音符",
+      "twentyFourthQuarter": "1/24 四分音符",
+      "thirtySecondQuarter": "1/32 四分音符",
+      "sixtyFourthQuarter": "1/64 四分音符",
+      "oneTwentyEighthQuarter": "1/128 四分音符",
+      "doNotSnap": "不吸附",
+      "adaptive": "自适应"
+    }
+  },
+  "titleBar": {
+    "themeToggle": "切换主题",
+    "minimize": "最小化",
+    "maximize": "最大化",
+    "restoreDown": "向下还原",
+    "close": "关闭"
+  }
+}

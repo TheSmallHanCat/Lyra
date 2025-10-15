@@ -1,7 +1,8 @@
-﻿const { app, BrowserWindow, Menu, dialog } = require('electron/main')
+﻿import { type IpcMainInvokeEvent } from 'electron';
+
+const { app, BrowserWindow, Menu, dialog } = require('electron/main')
 const path = require('path');
 const { ipcMain } = require('electron');
-import { type IpcMainInvokeEvent } from 'electron';
 
 function Startup() {
     const Startupwindows = new BrowserWindow({
